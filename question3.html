@@ -10,7 +10,7 @@
 
     <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-xl text-center transition-transform transform hover:scale-105">
         <h2 class="text-2xl font-bold mb-3">Question 1</h2>
-        <p class="text-lg mb-4">🔢 Find the sum of the first N numbers whose squares are palindrome numbers.</p>
+        <p class="text-lg mb-4">🔢 Find the sum of the first 10 numbers whose squares are palindrome numbers.</p>
         
         <div class="text-left text-sm bg-gray-800 p-4 rounded-lg mb-4">
             <p><strong>What is a palindrome number?</strong></p>
@@ -48,7 +48,7 @@
         function checkAnswer() {
             let userInput = document.getElementById("userAnswer").value.trim();
             let message = document.getElementById("message");
-            let n = 5; // Hardcoded value of N
+            let n = 10; // Hardcoded value of N
             let correctAnswer = findPalindromeSum(n);
             
             if (userInput === "") {
