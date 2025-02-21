@@ -10,7 +10,7 @@
 
     <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-xl text-center transition-transform transform hover:scale-105">
         <h2 class="text-2xl font-bold mb-3">Question 1</h2>
-        <p class="text-lg mb-4">🔢 Find the sum of the first 7 numbers whose squares are palindrome numbers.</p>
+        <p class="text-lg mb-4">🔢 Find the sum of the first N numbers whose squares are palindrome numbers.</p>
         
         <div class="text-left text-sm bg-gray-800 p-4 rounded-lg mb-4">
             <p><strong>What is a palindrome number?</strong></p>
@@ -19,10 +19,13 @@
             <p>For instance, 11 is a palindrome, and its square (121) is also a palindrome.</p>
         </div>
 
+        <input type="number" id="userAnswer" class="w-full p-3 text-lg text-white bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 text-center" placeholder="Enter your answer">
+        
         <button onclick="checkAnswer()" class="w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">Submit</button>
 
         <p id="message" class="mt-4 text-lg font-semibold"></p>
     </div>
+
 
     <script>
         function isPalindrome(num) {
@@ -43,12 +46,27 @@
         }
 
         function checkAnswer() {
+            let userInput = document.getElementById("userAnswer").value.trim();
             let message = document.getElementById("message");
-            let n = 7; // Hardcoded value of N
-            let result = findPalindromeSum(n);
-            message.textContent = `✅ Sum of first ${n} numbers whose squares are palindromes: ${result}`;
-            message.classList.add("text-green-400");
-            message.classList.remove("text-red-400");
+            let n = 5; // Hardcoded value of N
+            let correctAnswer = findPalindromeSum(n);
+            
+            if (userInput === "") {
+                message.textContent = "❌ Please enter an answer.";
+                message.classList.add("text-red-400");
+                message.classList.remove("text-green-400");
+                return;
+            }
+            
+            if (parseInt(userInput) === correctAnswer) {
+                message.textContent = "✅ Correct answer!";
+                message.classList.add("text-green-400");
+                message.classList.remove("text-red-400");
+            } else {
+                message.textContent = "❌ Wrong answer! Try again.";
+                message.classList.add("text-red-400");
+                message.classList.remove("text-green-400");
+            }
         }
     </script>
 
