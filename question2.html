@@ -8,21 +8,21 @@
 </head>
 <body class="h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
 
-    <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-xl text-center transition-transform transform hover:scale-105">
-        <h2 class="text-2xl font-bold mb-3">Question 2</h2>
-        <p class="text-lg mb-4">🔢 Find the sum of the first 30 prime numbers.</p>
+    <div class="w-full max-w-lg bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-xl text-center transition-transform transform hover:scale-105">
+        <h2 class="text-3xl font-bold mb-4">Question 2</h2>
+        <p class="text-xl mb-4">🔢 Find the sum of the first 30 prime numbers.</p>
         
-        <div class="text-left text-sm bg-gray-800 p-4 rounded-lg mb-4">
+        <div class="text-left text-lg bg-gray-800 p-4 rounded-lg mb-6">
             <p><strong>What is a prime number?</strong></p>
             <p>A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.</p>
-            <p><strong>Example:</strong> The first few prime numbers are 2, 3, 5, 7, 11, 13, etc.</p>
+            <p class="mt-2"><strong>Example:</strong> The first few prime numbers are <span class="text-blue-400">2, 3, 5, 7, 11, 13</span>, etc.</p>
         </div>
 
-        <input type="number" id="userAnswer" class="w-full p-3 text-lg text-white bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 text-center" placeholder="Enter your answer">
+        <input type="number" id="userAnswer" class="w-full p-4 text-xl text-white bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 text-center" placeholder="Enter your answer">
         
-        <button onclick="checkAnswer()" class="w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">Submit</button>
+        <button onclick="checkAnswer()" class="w-full mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 text-xl rounded-lg transition-all">Submit</button>
 
-        <p id="message" class="mt-4 text-lg font-semibold"></p>
+        <p id="message" class="mt-6 text-xl font-semibold"></p>
     </div>
 
     <script>
@@ -59,11 +59,11 @@
             }
             
             if (parseInt(userInput) === correctAnswer) {
-                message.textContent = "✅ Eligible for next question!";
+                message.textContent = "✅ Correct! Eligible for next question.";
                 message.classList.add("text-green-400");
                 message.classList.remove("text-red-400");
             } else {
-                message.textContent = "❌ Wrong answer! Try again.";
+                message.textContent = `❌ Wrong answer! The correct sum is ${correctAnswer}. Try again.`;
                 message.classList.add("text-red-400");
                 message.classList.remove("text-green-400");
             }
