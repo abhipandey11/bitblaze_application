@@ -8,24 +8,23 @@
 </head>
 <body class="h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
 
-    <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-xl text-center transition-transform transform hover:scale-105">
-        <h2 class="text-2xl font-bold mb-3">Question 3</h2>
-        <p class="text-lg mb-4">🔢 Find the sum of the first 10 numbers whose squares are palindrome numbers.</p>
+    <div class="w-full max-w-lg bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 shadow-xl text-center transition-transform transform hover:scale-105">
+        <h2 class="text-3xl font-bold mb-4">Question 3</h2>
+        <p class="text-xl mb-4">🔢 Find the sum of the first 10 numbers whose squares are palindrome numbers.</p>
         
-        <div class="text-left text-sm bg-gray-800 p-4 rounded-lg mb-4">
+        <div class="text-left text-lg bg-gray-800 p-5 rounded-lg mb-6">
             <p><strong>What is a palindrome number?</strong></p>
             <p>A palindrome number is a number that remains the same when its digits are reversed.</p>
-            <p><strong>Example:</strong> 121, 1331, 1221</p>
-            <p>For instance, 11 is a palindrome, and its square (121) is also a palindrome.</p>
+            <p class="mt-2"><strong>Example:</strong> <span class="text-blue-400">121, 1331, 1221</span></p>
+            <p class="mt-2">For instance, <span class="text-green-400 font-bold">11</span> is a palindrome, and its square (<span class="text-green-400 font-bold">121</span>) is also a palindrome.</p>
         </div>
 
-        <input type="number" id="userAnswer" class="w-full p-3 text-lg text-white bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 text-center" placeholder="Enter your answer">
+        <input type="number" id="userAnswer" class="w-full p-4 text-xl text-white bg-white bg-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 placeholder-gray-300 text-center" placeholder="Enter your answer">
         
-        <button onclick="checkAnswer()" class="w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">Submit</button>
+        <button onclick="checkAnswer()" class="w-full mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 text-xl rounded-lg transition-all">Submit</button>
 
-        <p id="message" class="mt-4 text-lg font-semibold"></p>
+        <p id="message" class="mt-6 text-xl font-semibold"></p>
     </div>
-
 
     <script>
         function isPalindrome(num) {
@@ -48,8 +47,7 @@
         function checkAnswer() {
             let userInput = document.getElementById("userAnswer").value.trim();
             let message = document.getElementById("message");
-            let n = 10; // Hardcoded value of N
-            let correctAnswer = findPalindromeSum(n);
+            let correctAnswer = findPalindromeSum(10); 
             
             if (userInput === "") {
                 message.textContent = "❌ Please enter an answer.";
@@ -59,11 +57,11 @@
             }
             
             if (parseInt(userInput) === correctAnswer) {
-                 message.textContent = "✅ Congratulation you passed this round";
+                message.textContent = "✅ Congratulations! You passed this round.";
                 message.classList.add("text-green-400");
                 message.classList.remove("text-red-400");
             } else {
-                message.textContent = "❌ Wrong answer! Try again.";
+                message.textContent = `❌ Wrong answer! The correct sum is ${correctAnswer}. Try again.`;
                 message.classList.add("text-red-400");
                 message.classList.remove("text-green-400");
             }
