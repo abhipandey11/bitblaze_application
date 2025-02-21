@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
 
+    <div class="w-full max-w-md bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-6 shadow-xl text-center transition-transform transform hover:scale-105">
+        <h2 class="text-2xl font-bold mb-3">Question 1</h2>
+        <p class="text-lg mb-4">🔢 Find the sum of the first 7 numbers whose squares are palindrome numbers.</p>
+        
+        <div class="text-left text-sm bg-gray-800 p-4 rounded-lg mb-4">
+            <p><strong>What is a palindrome number?</strong></p>
+            <p>A palindrome number is a number that remains the same when its digits are reversed.</p>
+            <p><strong>Example:</strong> 121, 1331, 1221</p>
+            <p>For instance, 11 is a palindrome, and its square (121) is also a palindrome.</p>
+        </div>
+
+        <button onclick="checkAnswer()" class="w-full mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-all">Submit</button>
+
+        <p id="message" class="mt-4 text-lg font-semibold"></p>
+    </div>
+
+    <script>
+        function isPalindrome(num) {
+            let str = num.toString();
+            return str === str.split('').reverse().join('');
+        }
+
+        function findPalindromeSum(n) {
+            let count = 0, sum = 0, num = 1;
+            while (count < n) {
+                if (isPalindrome(num * num)) {
+                    sum += num;
+                    count++;
+                }
+                num++;
+            }
+            return sum;
+        }
+
+        function checkAnswer() {
+            let message = document.getElementById("message");
+            let n = 7; // Hardcoded value of N
+            let result = findPalindromeSum(n);
+            message.textContent = `✅ Sum of first ${n} numbers whose squares are palindromes: ${result}`;
+            message.classList.add("text-green-400");
+            message.classList.remove("text-red-400");
+        }
+    </script>
+
+</body>
+</html>
